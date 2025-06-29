@@ -1,9 +1,14 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "bolt"
+
+# Enables Node.js-style APIs like fs, path, crypto, etc.
 compatibility_flags = ["nodejs_compat"]
+
+# Required by Cloudflare Workers
 compatibility_date = "2025-03-28"
+
+# Disables Cloudflare telemetry
 send_metrics = false
 
-# Required for Worker deployment
+# 🚨 REQUIRED: tells Wrangler what file to deploy
 main = "build/worker.js"
-
